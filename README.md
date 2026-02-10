@@ -7,7 +7,7 @@ This project shows basic usage patterns and is intended as a starting point for 
 - Listen to RPCs (e.g. initiated through buttons and switches on a Dashboard)
 
 ## Dashboard representing the MQTT client device functionality
-![thingsboard-sample-dashboart](https://github.com/JoooHannesk/TinyTBDeviceClient-Example/blob/main/Assets/)
+![thingsboard-sample-dashboart](https://github.com/JoooHannesk/TinyTBDeviceClient-Example/blob/main/Assets/thingsboard-screenshot-dashboard.png)
 
 ## Requirements
 - Computer running macOS (with Xcode or developer command-line tools) or Linux (with Swift), a Raspberry works as well
