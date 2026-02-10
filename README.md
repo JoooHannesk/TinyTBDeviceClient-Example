@@ -1,5 +1,5 @@
 # TinyTBDeviceClient-Example
-A reference implementation demonstrating how to use the [TinyTBDeviceClient](https://github.com/JoooHannesk/TinyTBDeviceClient) library to connect a device to a ThingsBoard server.
+A reference implementation demonstrating how to use the [TinyTBDeviceClient](https://github.com/JoooHannesk/TinyTBDeviceClient) library to connect a device to a ThingsBoard server using MQTT.
 This project shows basic usage patterns and is intended as a starting point for your own IoT applications. It covers:
 - Connect
 - Disconect
