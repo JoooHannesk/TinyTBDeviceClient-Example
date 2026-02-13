@@ -13,8 +13,7 @@ import Foundation
 import Logging
 
 
-// MARK: - Usage Example
-
+// MARK: - MQTT Client related
 var client: TinyTBDeviceClient
 let eventLoopGroup: EventLoopGroup = MultiThreadedEventLoopGroup(numberOfThreads: 1)
 let eventLoopGroupNioProvider: NIOEventLoopGroupProvider = .shared(eventLoopGroup)
@@ -22,10 +21,7 @@ let logger = Logger(label: "TinyTBDeviceClient")
 let rpcTopics: [String] = ["v1/devices/me/rpc/request/+"]
 let telemetryTopic: String = "v1/devices/me/telemetry"
 
-let clientCredentials: MQTTClientCredentials = ConfigLoader(
-                                                            searchPath: "Credentials",
-                                                            logger: logger
-                                                            ).loadClientCredentialsFromFile(fileName: "credentials.json")!
+let clientCredentials: MQTTClientCredentials = ConfigLoader(searchPath: "Credentials", logger: logger).loadClientCredentialsFromFile(fileName: "credentials.json")!
 
 do {
     client = try TinyTBDeviceClient(
@@ -70,5 +66,38 @@ client.connect(
     }
 )
 
+
+// MARK: POSIX Signals related
+let sigintSource = DispatchSource.makeSignalSource(signal: SIGINT, queue: .main)
+let sigtermSource = DispatchSource.makeSignalSource(signal: SIGTERM, queue: .main)
+
+sigintSource.setEventHandler { handle(signal: SIGINT) }
+sigtermSource.setEventHandler { handle(signal: SIGTERM) }
+
+sigintSource.resume()
+sigtermSource.resume()
+
+// MARK: Signal handling
+
+/// Handle received signal
+///
+/// In this simplified case, disconnect and shut down
+func handle(signal: Int32) {
+    print("Received signal \(signal).")
+
+    sigintSource.cancel()
+    sigtermSource.cancel()
+
+    do {
+        client.disconnect()
+        try eventLoopGroup.syncShutdownGracefully()
+        print("EventLoopGroup shut down.")
+    } catch {
+        print("Shutdown error: \(error)")
+    }
+    exit(0)
+}
+
+print("PID: \(getpid())")
 dispatchMain()
 
