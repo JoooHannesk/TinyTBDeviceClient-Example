@@ -45,7 +45,6 @@ RPCMessageProcessor.mqttClient = client
 client.registerMessageListener(named: "RPC Listener") { message, topic in
     print("Received message with payload \(message) for topic \(topic)")
     RPCMessageProcessor.process(message: message, topic: topic)
-
 }
 
 client.connect(
