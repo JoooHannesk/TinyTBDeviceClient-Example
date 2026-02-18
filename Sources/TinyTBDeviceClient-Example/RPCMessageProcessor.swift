@@ -210,14 +210,13 @@ enum RPCMessageProcessor {
     ///
     /// Example:
     /// ```swift
-    /// // Check if scheduler is running and respond to RPC request
-    /// let response = "\(scheduledTelemetryPushTaskIsRunning)"
+    /// // Check if scheduler is running
+    /// let running = "\(scheduledTelemetryPushTaskIsRunning)"
     /// ```
     ///
     /// See also: `startScheduledTelemetryPushTask()`, `stopScheduledTelemetryPushTask()`
     static var scheduledTelemetryPushTaskIsRunning: Int {
         return (Self.scheduledTelemetryPushTask != nil) ? 1 : 0
     }
-
 }
 

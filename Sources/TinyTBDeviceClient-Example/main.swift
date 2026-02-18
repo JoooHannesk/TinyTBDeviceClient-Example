@@ -1,4 +1,3 @@
-
 //
 //  TinyTBDeviceClient_Example.swift
 //  TinyTBDeviceClient_Example
