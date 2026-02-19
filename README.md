@@ -7,6 +7,8 @@ This project shows basic usage patterns and is intended as a starting point for 
 - Listen to RPCs (e.g. initiated through buttons and switches on a Dashboard)
 
 ## Dashboard representing the MQTT client device functionality
+The sample implementation acts as a client device visualized by this dashboard. It displays three different random numbers, each published by the client device.
+Random number one and two can be updated by pushing the corresponding buttons, random number three gets updated automatically when activated through the switch.
 ![thingsboard-sample-dashboart](https://github.com/JoooHannesk/TinyTBDeviceClient-Example/blob/main/Assets/thingsboard-screenshot-dashboard.png)
 
 ## Requirements
