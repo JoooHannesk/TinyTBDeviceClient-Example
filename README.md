@@ -26,3 +26,11 @@ This project shows basic usage patterns and is intended as a starting point for 
 
 ### MQTT-Basic client device credentials
 ![mqtt-basic-device-credentials](https://github.com/JoooHannesk/TinyTBDeviceClient-Example/blob/main/Assets/mqtt-device-credentials.png)
+
+## SSL / TLS
+In case you need to set up your own PKI for your MQTT or ThingsBoard server, look at the related post on my blog: [Building a Secure PKI for MQTT using OpenSSL](https://johanneskinzig.com/building-a-secure-pki-for-mqtt-using-openssl-root-ca-intermediate-ca-and-server-certificates.html)
+
+## License
+- Apache 2.0 License
+- Copyright (c) 2026 Johannes Kinzig
+- see LICENSE
