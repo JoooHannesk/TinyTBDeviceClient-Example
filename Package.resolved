@@ -1,5 +1,5 @@
 {
-  "originHash" : "921e6c23320a5debbd582b55b4c631aa74c0de95d1954d0963bf39b157d51421",
+  "originHash" : "45396c58c6df3fac4d3d3cc905cc2fe7ea7615557cf9596df9894378e07cdcd6",
   "pins" : [
     {
       "identity" : "mqtt-nio",
@@ -78,8 +78,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/JoooHannesk/TinyTBDeviceClient.git",
       "state" : {
-        "revision" : "19b328379b43b331edaeb62bfc21655ed57f6cad",
-        "version" : "0.0.2"
+        "revision" : "28a8ce8c72296c5708268b984d3e45304a61f7c3",
+        "version" : "0.0.3"
       }
     }
   ],

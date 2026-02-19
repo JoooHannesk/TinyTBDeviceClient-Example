@@ -176,7 +176,14 @@ enum RPCMessageProcessor {
 
         // Schedule the repeating task - using the correct syntax for Swift on Linux
         Self.scheduledTelemetryPushTask = Self.eventLoop?.scheduleRepeatedTask(initialDelay: .seconds(0), delay: .seconds(1)) { _ in
-            Self.publishNo3Telemetry()
+            if let isConnected = mqttClient?.isConnected {
+                if isConnected {
+                    Self.publishNo3Telemetry()
+                } else {
+                    Self.stopScheduledTelemetryPushTask()
+                    print("⚠️ Client lost connection, stopping scheduled telemetry push task.")
+                }
+            }
         }
     }
 
